@@ -13,7 +13,9 @@
 {{-- Se agrega el header --}}
 <x-Header />
 
-<body>
+<body class="flex flex-col min-h-screen">
+    <main class="flex-1 flex justify-center items-center">
+    </main>
     {{-- El slot es donde se va a cargar el contenido de cada vista --}}
     {{ $slot }}
 </body>
