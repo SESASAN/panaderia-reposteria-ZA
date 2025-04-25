@@ -25,8 +25,10 @@
                 </div>
 
 
-
+                <a href="/home">
                 <button type="submit" class="submit-btn">Iniciar Sesión</button>
+                </a>
+                
                 <button class="google-btn">
                     <img src="{{ asset('images/google.png') }}" alt="Google Logo">
                     Iniciar Sesión con Google

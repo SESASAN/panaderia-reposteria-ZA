@@ -16,9 +16,9 @@
             </ul>
         </div>
         <div>
-            <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">
+            <!-- <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">
                 Iniciar Sesión
-            </button>
+            </button> -->
         </div>
     </nav>
 </header>
