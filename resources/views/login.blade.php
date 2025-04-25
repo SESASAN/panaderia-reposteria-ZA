@@ -28,7 +28,7 @@
 
                 <button type="submit" class="submit-btn">Iniciar Sesión</button>
                 <button class="google-btn">
-                    <img src="{{ asset('images/cromo.png') }}" alt="Google Logo">
+                    <img src="{{ asset('images/google.png') }}" alt="Google Logo">
                     Iniciar Sesión con Google
                 </button>
             </form>
@@ -120,15 +120,11 @@
         }
         
         .recordarme-container input[type="checkbox"] {
-    margin-right: 0.5rem; 
-    display: inline-block; 
-    width: auto; 
-    height: auto; 
-}
-
-
-
-
+            margin-right: 0.5rem; 
+            display: inline-block; 
+            width: auto; 
+            height: auto; 
+        }
         
         button {
             width: 100%;
@@ -146,7 +142,7 @@
         }
 
         button.google-btn {
-            background-color: #EC4899;
+            background-color: #2563EB;
             color: white;
             display: flex;
             justify-content: center;
@@ -154,7 +150,7 @@
         }
 
         button.google-btn img {
-            width: 20px; 
+            width: 30px; 
             margin-right: 0.5rem;
         }
     </style>
