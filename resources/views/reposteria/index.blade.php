@@ -6,8 +6,8 @@
 
     <!-- Botón para crear un nuevo producto -->
     <div class="flex justify-center mt-6">
-        <a 
-            href="{{route('reposteria.create')}}" 
+        <a
+            href="{{route('reposteria.create')}}"
             class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
         >
             Nuevo producto
@@ -21,8 +21,8 @@
             @foreach ($productos as $producto)
                 @if ($producto->categoria_id == 2)
                     <li class="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow">
-                        <a 
-                            href="{{route('reposteria.show', $producto)}}" 
+                        <a
+                            href="{{route('reposteria.show', $producto)}}"
                             class="text-lg font-medium text-gray-800 hover:text-red-600 transition duration-300"
                         >
                             {{ $producto->nombre }}
@@ -34,9 +34,9 @@
     </div>
 
     <!-- Paginación (comentada) -->
-    {{-- 
+    {{--
     <div class="mt-6 flex justify-center">
         {{ $posts->links() }}
-    </div> 
+    </div>
     --}}
 </x-Layout>

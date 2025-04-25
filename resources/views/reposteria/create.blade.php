@@ -1,13 +1,13 @@
 <x-Layout>
     <!-- Encabezado -->
-    <div class="bg-[#FFF7EB] py-6 px-4 text-center">
+    <div class="bg-[#FFF7EB] py-6 px-max text-center">
         <h1 class="text-4xl font-bold text-gray-800">Nuevo Producto</h1>
     </div>
 
     <!-- Formulario -->
     <div class="w-[96%] max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10">
         {{-- Validación de errores (descomentable) --}}
-        {{-- 
+        {{--
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                 <h2 class="font-bold">Errores:</h2>
@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif
         --}}
 
         <form action="{{ route('reposteria.store') }}" method="POST" class="space-y-6">
@@ -26,11 +26,11 @@
             <!-- Campo Nombre -->
             <div>
                 <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                <input 
-                    type="text" 
-                    name="nombre" 
-                    id="nombre" 
-                    value="{{ old('nombre') }}" 
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    value="{{ old('nombre') }}"
                     placeholder="Ingrese el nombre del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
@@ -42,11 +42,11 @@
             <!-- Campo Slug -->
             <div>
                 <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-                <input 
-                    type="text" 
-                    name="slug" 
-                    id="slug" 
-                    value="{{ old('slug') }}" 
+                <input
+                    type="text"
+                    name="slug"
+                    id="slug"
+                    value="{{ old('slug') }}"
                     placeholder="Ingrese el slug del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
@@ -58,9 +58,9 @@
             <!-- Campo Categoría -->
             <div>
                 <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>
-                <select 
-                    name="categoria_id" 
-                    id="categoria_id" 
+                <select
+                    name="categoria_id"
+                    id="categoria_id"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >
                     <option value="">Selecciona una categoría</option>
@@ -76,10 +76,10 @@
             <!-- Campo Descripción -->
             <div>
                 <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <textarea 
-                    name="descripcion" 
-                    id="descripcion" 
-                    rows="4" 
+                <textarea
+                    name="descripcion"
+                    id="descripcion"
+                    rows="4"
                     placeholder="Ingrese una descripción del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >{{ old('descripcion') }}</textarea>
@@ -90,8 +90,8 @@
 
             <!-- Botón de envío -->
             <div class="flex justify-end">
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
                 >
                     Crear Producto
