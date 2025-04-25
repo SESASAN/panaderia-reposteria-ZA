@@ -5,7 +5,7 @@
     </div>
 
     <!-- Formulario -->
-    <div class="w-[96%] max-w-250 mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10"> <!-- Ajusté max-w-full y añadí mb-10 -->
+    <div class="w-[96%] max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10">
         {{-- Validación de errores (descomentable) --}}
         {{-- 
         @if ($errors->any())
@@ -20,7 +20,7 @@
         @endif 
         --}}
 
-        <form action="{{route('reposteria.store')}}" method="POST" class="space-y-6">
+        <form action="{{ route('reposteria.store') }}" method="POST" class="space-y-6">
             @csrf
 
             <!-- Campo Nombre -->
@@ -31,12 +31,11 @@
                     name="nombre" 
                     id="nombre" 
                     value="{{ old('nombre') }}" 
+                    placeholder="Ingrese el nombre del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
                 @error('nombre')
-                    <p class="text-red-600 text-sm mt-1">
-                        {{ $message }}
-                    </p>
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -48,12 +47,11 @@
                     name="slug" 
                     id="slug" 
                     value="{{ old('slug') }}" 
+                    placeholder="Ingrese el slug del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
                 @error('slug')
-                    <p class="text-red-600 text-sm mt-1">
-                        {{ $message }}
-                    </p>
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -65,14 +63,13 @@
                     id="categoria_id" 
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >
+                    <option value="">Selecciona una categoría</option>
                     @foreach($categorias as $categoria)
                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                     @endforeach
                 </select>
                 @error('categoria_id')
-                    <p class="text-red-600 text-sm mt-1">
-                        {{ $message }}
-                    </p>
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -83,12 +80,11 @@
                     name="descripcion" 
                     id="descripcion" 
                     rows="4" 
+                    placeholder="Ingrese una descripción del producto"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >{{ old('descripcion') }}</textarea>
                 @error('descripcion')
-                    <p class="text-red-600 text-sm mt-1">
-                        {{ $message }}
-                    </p>
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 

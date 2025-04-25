@@ -1,21 +1,19 @@
-<footer class="bg-[#FFF7EB] py-12 lg:py-5 border-t border-neutral-100 ">
-      <div class="w-[96%] max-w-7xl mx-auto">
-        <div
-          class="border-b border-neutral-100 pb-8 lg:pb-5 flex justify-between flex-col lg:flex-row items-center lg:items-start"
-        >
-          <div
-            class="space-y-5 pb-4 border-b border-neutral-100 lg:pb-1 lg:border-none w-full flex flex-col lg:block items-center"
-          >
-            <img src="{{asset('images/logoconnegro.png')}}" alt="Panadería y repostería Zhandra Araujo" class="w-40" />
-            <ul
-              class="flex gap-x-8 text-xs text-gray-500 flex-col lg:flex-row gap-y-6 text-center lg:text-start"
-            >
-              <li>
-                <a href="#" class="hover:text-red-600">Productos y Servicios</a>
-              </li>
-              <li><a href="#" class="hover:text-red-600">Contacto</a></li>
-              <li><a href="#" class="hover:text-red-600">Sobre nosotros</a></li>
-            </ul>
+<footer class="bg-[#FFF7EB] py-12 lg:py-5 border-t border-neutral-100">
+    <div class="w-[96%] max-w-7xl mx-auto">
+        <div class="border-b border-neutral-100 pb-8 lg:pb-5 flex flex-col lg:flex-row justify-between items-center lg:items-start">
+            <div class="space-y-5 pb-4 border-b border-neutral-100 lg:pb-1 lg:border-none w-full flex flex-col items-center lg:block">
+                <img src="{{ asset('images/logoconnegro.png') }}" alt="Panadería y repostería Zhandra Araujo" class="w-40" />
+                <ul class="flex flex-col lg:flex-row gap-x-8 text-xs text-gray-500 gap-y-6 text-center lg:text-start">
+                    <li>
+                        <a href="#" class="hover:text-red-600">Productos y Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-red-600">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-red-600">Sobre nosotros</a>
+                    </li>
+                </ul>
             <!-- Social icons -->
             <div class="flex items-center gap-x-4 text-gray-700">
               <!-- Tiktok icon -->
