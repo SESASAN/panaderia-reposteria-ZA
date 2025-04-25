@@ -1,86 +1,106 @@
 <x-Layout>
-    <h1>Nuevo Producto</h1>
+    <!-- Encabezado -->
+    <div class="bg-[#FFF7EB] py-6 px-4 text-center">
+        <h1 class="text-4xl font-bold text-gray-800">Nuevo Producto</h1>
+    </div>
 
-    {{-- @if ($errors->any())
-        <div>
-            <h2>Errores</h2>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
-    <form action="{{route('reposteria.store')}}" method="POST">
-        @csrf
-        <label>
-            Nombre:
-            <br>
-            <input type="text" name="nombre" value="{{old('nombre')}}">
-        </label>
+    <!-- Formulario -->
+    <div class="w-[96%] max-w-250 mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10"> <!-- Ajusté max-w-full y añadí mb-10 -->
+        {{-- Validación de errores (descomentable) --}}
+        {{-- 
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <h2 class="font-bold">Errores:</h2>
+                <ul class="list-disc list-inside">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif 
+        --}}
 
-        @error('nombre')
-            <p>
-                {{ $message }}
-            </p>
+        <form action="{{route('reposteria.store')}}" method="POST" class="space-y-6">
+            @csrf
 
-        @enderror
-        <br>
-        <br>
-        <label>
-            Slug:
-            <br>
-            <input type="text" name="slug" value="{{old('slug')}}">
-        </label>
+            <!-- Campo Nombre -->
+            <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    id="nombre" 
+                    value="{{ old('nombre') }}" 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                />
+                @error('nombre')
+                    <p class="text-red-600 text-sm mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
+            </div>
 
-        @error('slug')
-            <p>
-                {{ $message }}
-            </p>
-        @enderror
+            <!-- Campo Slug -->
+            <div>
+                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                <input 
+                    type="text" 
+                    name="slug" 
+                    id="slug" 
+                    value="{{ old('slug') }}" 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                />
+                @error('slug')
+                    <p class="text-red-600 text-sm mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
+            </div>
 
-        <br>
-        <br>
-{{--
-        <div class="form-group">
-            <label>Imagen:</label>
-            <input type="file" name="imagen" class="form-control-file" accept="image/png, image/jpeg" required>
-        </div>
-        @error('imagen')
-            <p>
-                {{ $message }}
-            </p>
-        @enderror --}}
-        <br>
-        <br>
-        <label>Categoría:
-            <select name="categoria_id">
-                @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
-                @endforeach
-            </select>
-        </label>
-        @error('categoria')
-            <p>
-                {{ $message }}
-            </p>
-        @enderror
-        <br>
-        <br>
-        <label">
-            Descripcion:
-            <br>
-            <textarea name="descripcion" id="" cols="30" rows="10">{{old('descripcion')}}</textarea>
-        </label>
+            <!-- Campo Categoría -->
+            <div>
+                <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>
+                <select 
+                    name="categoria_id" 
+                    id="categoria_id" 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                >
+                    @foreach($categorias as $categoria)
+                        <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                    @endforeach
+                </select>
+                @error('categoria_id')
+                    <p class="text-red-600 text-sm mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
+            </div>
 
-        @error('descripcion')
-            <p>
-                {{ $message }}
-            </p>
-        @enderror
+            <!-- Campo Descripción -->
+            <div>
+                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+                <textarea 
+                    name="descripcion" 
+                    id="descripcion" 
+                    rows="4" 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                >{{ old('descripcion') }}</textarea>
+                @error('descripcion')
+                    <p class="text-red-600 text-sm mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
+            </div>
 
-        <br>
-        <br>
-        <button type="submit">Crear Producto</button>
-    </form>
+            <!-- Botón de envío -->
+            <div class="flex justify-end">
+                <button 
+                    type="submit" 
+                    class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
+                >
+                    Crear Producto
+                </button>
+            </div>
+        </form>
+    </div>
 </x-Layout>
