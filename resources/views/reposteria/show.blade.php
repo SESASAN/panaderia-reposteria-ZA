@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 11 | {{$producto}}</title>
-</head>
-<body>
-    <a href="{{route('productos.index')}}">Volver</a>
-    <h1>Nombre: {{$producto->Nombre}}</h1>
+<x-Layout>
+    <a href="{{route('reposteria')}}">Volver</a>
+    <h1>Nombre: {{$producto->nombre}}</h1>
     <p>
-        {{$producto->Descripcion}}
+        {{$producto->descripcion}}
     </p>
+    <img src="{{ asset('images/--nombre--') }}" alt="Imagen del producto" width="200">
     <p>
-        Precio: {{$producto->Precio}}$
+        Precio: {{$producto->precio}}$
     </p>
-    <a href="{{route('productos.edit', $producto)}}">
+    <a href="{{route('reposteria.edit', $producto)}}">
         Editar Producto
     </a>
 
-    <form action="{{route('productos.destroy', $producto)}}" method="POST">
-        @csrf
-        @method('DELETE')
+    {{-- {{route('reposteria.destroy', $producto)}} --}}
+    <form action="" method="POST">
+        {{-- @csrf
+        @method('DELETE') --}}
         <button type="submit">
             Eliminar Producto
         </button>
     </form>
-</body>
-</html>
+</x-Layout>

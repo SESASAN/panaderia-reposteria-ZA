@@ -31,13 +31,13 @@
     <form style="max-width: 500px; margin: 0 auto; background-color: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
         <label for="nombre" style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Nombre:</label>
         <input type="text" id="nombre" name="nombre" style="width: 100%; padding: 0.5rem; border: 1px solid gray; border-radius: 0.375rem; margin-bottom: 1rem;">
-        
+
         <label for="email" style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Email:</label>
         <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem; border: 1px solid gray; border-radius: 0.375rem; margin-bottom: 1rem;">
-        
+
         <label for="mensaje" style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Mensaje:</label>
         <textarea id="mensaje" name="mensaje" rows="4" style="width: 100%; padding: 0.5rem; border: 1px solid gray; border-radius: 0.375rem; margin-bottom: 1rem;"></textarea>
-        
+
         <button type="submit" style="background-color: #EF4444; color: white; padding: 0.5rem; border-radius: 0.375rem; width: 100%; font-size: 1rem;">Enviar</button>
     </form>
 </section>

@@ -1,13 +1,13 @@
-<x-app-layout>
+<x-Layout>
     <h1 class="text-3xl">Repostería</h1>
 
-    <a href="{{route('productos.create')}}">Nuevo prodcuto</a>
+    <a href="{{route('reposteria.create')}}">Nuevo prodcuto</a>
     <ul>
-        @foreach ($prodcutos as $producto)
-            @if ($producto->categoria == 2)
+        @foreach ($productos as $producto)
+            @if ($producto->categoria_id == 2)
                 <li>
-                    <a href="{{route('productos.show', $producto)}}">
-                        {{ $producto->Nombre }}
+                    <a href="{{route('reposteria.show', $producto)}}">
+                        {{ $producto->nombre }}
                     </a>
                 </li>
             @endif
@@ -17,4 +17,4 @@
     {{-- <div>
         {{ $posts->links() }}
     </div> --}}
-</x-app-layout>
+</x-Layout>

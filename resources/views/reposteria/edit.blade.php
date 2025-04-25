@@ -1,12 +1,12 @@
-<x-app-layout>
+<x-Layout>
     <h1>Editar Produtco</h1>
-    <form action="{{route('productos.update', $producto)}}" method="POST">
+    <form action="{{route('reposteria.update', $producto)}}" method="POST">
         @csrf
         @method('PUT')
         <label>
             Nombre:
             <br>
-            <input type="text" name="nombre" value="{{old('title', $producto->nombre)}}">
+            <input type="text" name="nombre" value="{{old('nombre', $producto->nombre)}}">
         </label>
         @error('nombre')
             <p>
@@ -25,7 +25,7 @@
                 {{ $message }}
             </p>
         @enderror
-        <br>
+        {{-- <br>
         <br>
         <div class="form-group">
             <label>Imagen Actual:</label>
@@ -40,7 +40,7 @@
             <p>
                 {{ $message }}
             </p>
-        @enderror
+        @enderror --}}
         <br>
         <br>
         <label>Categoría:
@@ -60,7 +60,7 @@
         <label">
             Descripcion:
             <br>
-            <textarea name="descripcion" id="" cols="30" rows="10">{{old('descripcion', $producto->Descripcion)}}</textarea>
+            <textarea name="descripcion" id="" cols="30" rows="10">{{old('descripcion', $producto->descripcion)}}</textarea>
         </label>
         @error('descripcion')
             <p>
@@ -71,4 +71,4 @@
         <br>
         <button type="submit">Actualizar Producto</button>
     </form>
-</x-app-layout>
+</x-Layout>

@@ -1,5 +1,5 @@
-<x-app-layout>
-    <h1>Nuevo Post</h1>
+<x-Layout>
+    <h1>Nuevo Producto</h1>
 
     {{-- @if ($errors->any())
         <div>
@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif --}}
-    <form action="{{route('posts.store')}}" method="POST">
+    <form action="{{route('reposteria.store')}}" method="POST">
         @csrf
         <label>
             Nombre:
@@ -41,11 +41,7 @@
 
         <br>
         <br>
-        <div class="form-group">
-            <label>Nombre:</label>
-            <input type="text" name="nombre" class="form-control" required>
-        </div>
-
+{{--
         <div class="form-group">
             <label>Imagen:</label>
             <input type="file" name="imagen" class="form-control-file" accept="image/png, image/jpeg" required>
@@ -54,7 +50,7 @@
             <p>
                 {{ $message }}
             </p>
-        @enderror
+        @enderror --}}
         <br>
         <br>
         <label>Categoría:
@@ -87,4 +83,4 @@
         <br>
         <button type="submit">Crear Producto</button>
     </form>
-</x-app-layout>
+</x-Layout>
