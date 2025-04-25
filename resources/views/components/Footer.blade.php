@@ -1,4 +1,4 @@
-<footer class="py-12 lg:py-5 border-t border-neutral-100 ">
+<footer class="bg-[#FFF7EB] py-12 lg:py-5 border-t border-neutral-100 ">
       <div class="w-[96%] max-w-7xl mx-auto">
         <div
           class="border-b border-neutral-100 pb-8 lg:pb-5 flex justify-between flex-col lg:flex-row items-center lg:items-start"
@@ -92,7 +92,7 @@
             </form>
           </div> -->
         </div>
-        <div class="pt-8 flex justify-between flex-col lg:flex-row gap-y-4 items-center">
+        <div class="pt-8 w-full flex justify-between flex-col lg:flex-row gap-y-4 items-center">
           <ul class="flex gap-x-8 text-xs text-gray-500">
             <li><a href="#" class="hover:text-red-600">Español</a></li>
             <li><a href="#" class="hover:text-red-600">Privacy</a></li>
