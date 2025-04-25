@@ -1,36 +1,33 @@
 <head>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="left-section">
+<body class="flex h-screen m-0">
+    <div class="left-section bg-[#F5E7D3] w-1/2 flex flex-col justify-center items-center">
         <div class="text-center">
-            <img src="{{ asset('images/logoconnegro.png') }}" alt="Panadería y repostería Zhandra Araujo">
+            <img src="{{ asset('images/logoconnegro.png') }}" alt="Panadería y repostería Zhandra Araujo" class="w-80 h-auto">
         </div>
     </div>
 
-    <div class="right-section">
-        <div class="form-container">
-            <h2>Bienvenido de nuevo</h2>
-            <p>Por favor ingresa tu información</p>
+    <div class="right-section bg-[#FFF7EB] w-1/2 flex flex-col justify-center items-center p-8">
+        <div class="form-container bg-white p-10 rounded-lg shadow-md w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-4">Bienvenido de nuevo</h2>
+            <p class="text-gray-600 mb-4">Por favor ingresa tu información</p>
             <form action="/login" method="POST">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <label for="email" class="block text-left text-gray-700 mb-1">Email:</label>
+                <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-md mb-4">
 
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password">
+                <label for="password" class="block text-left text-gray-700 mb-1">Contraseña:</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-md mb-4">
 
-                <div class="recordarme-container" style="display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1rem;">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Recordarme</label>
+                <div class="recordarme-container flex items-center mb-4 w-full">
+                    <input type="checkbox" id="remember" name="remember" class="mr-2">
+                    <label for="remember" class="text-gray-700">Recordarme</label>
                 </div>
 
-
-                <a href="/home">
-                <button type="submit" class="submit-btn">Iniciar Sesión</button>
-                </a>
+                <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md font-bold mb-2">Iniciar Sesión</button>
                 
-                <button class="google-btn">
-                    <img src="{{ asset('images/google.png') }}" alt="Google Logo">
+                <button type="button" class="w-full bg-blue-600 text-white flex justify-center items-center py-2 rounded-md">
+                    <img src="{{ asset('images/google.png') }}" alt="Google Logo" class="w-8 mr-2">
                     Iniciar Sesión con Google
                 </button>
             </form>
