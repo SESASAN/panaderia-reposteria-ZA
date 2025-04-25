@@ -36,14 +36,14 @@
     </div>
 </body>
 <style>
-        
+
         body {
             display: flex;
             height: 100vh;
             margin: 0;
         }
 
-        
+
         .left-section {
             background-color: #F5E7D3;
             width: 50%;
@@ -58,12 +58,12 @@
         }
 
         .left-section img {
-            width: 350px; 
-            height: auto; 
+            width: 350px;
+            height: auto;
         }
 
 
-        
+
         .right-section {
             background-color: #FFF7EB;
             width: 50%;
@@ -71,20 +71,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 4rem; 
+            padding: 0 4rem;
         }
 
-        
+
         .form-container {
             background-color: white;
             padding: 2.5rem;
-            border-radius: 0.5rem; 
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+            border-radius: 0.5rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 25rem; 
+            max-width: 25rem;
         }
 
-        
+
         h2 {
             font-size: 1.5rem;
             font-weight: bold;
@@ -118,14 +118,14 @@
             margin-bottom: 1rem;
             width: 100%;
         }
-        
+
         .recordarme-container input[type="checkbox"] {
-            margin-right: 0.5rem; 
-            display: inline-block; 
-            width: auto; 
-            height: auto; 
+            margin-right: 0.5rem;
+            display: inline-block;
+            width: auto;
+            height: auto;
         }
-        
+
         button {
             width: 100%;
             padding: 0.5rem;
@@ -150,7 +150,7 @@
         }
 
         button.google-btn img {
-            width: 30px; 
+            width: 30px;
             margin-right: 0.5rem;
         }
     </style>
