@@ -24,3 +24,7 @@
 <x-Footer />
 
 </html>
+
+<style>
+    
+</style>
