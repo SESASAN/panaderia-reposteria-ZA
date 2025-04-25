@@ -1,4 +1,4 @@
-<footer class="py-12 lg:py-5 border-t border-neutral-100">
+<footer class="py-12 lg:py-5 border-t border-neutral-100 ">
       <div class="w-[96%] max-w-7xl mx-auto">
         <div
           class="border-b border-neutral-100 pb-8 lg:pb-5 flex justify-between flex-col lg:flex-row items-center lg:items-start"
@@ -6,7 +6,7 @@
           <div
             class="space-y-5 pb-4 border-b border-neutral-100 lg:pb-1 lg:border-none w-full flex flex-col lg:block items-center"
           >
-            <img src="{{asset('images/Logo2.jpg')}}" alt="Panadería y repostería Zhandra Araujo" class="w-40" />
+            <img src="{{asset('images/logoconnegro.png')}}" alt="Panadería y repostería Zhandra Araujo" class="w-40" />
             <ul
               class="flex gap-x-8 text-xs text-gray-500 flex-col lg:flex-row gap-y-6 text-center lg:text-start"
             >
