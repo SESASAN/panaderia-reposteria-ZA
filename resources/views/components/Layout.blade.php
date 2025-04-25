@@ -13,7 +13,7 @@
 {{-- Se agrega el header --}}
 <x-Header />
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#F5E7D3]">
     <main class="flex-1 flex justify-center items-center">
     </main>
     {{-- El slot es donde se va a cargar el contenido de cada vista --}}
