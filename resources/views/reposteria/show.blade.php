@@ -4,9 +4,9 @@
         <h1 class="text-4xl font-bold text-gray-800 text-center">Producto</h1>
 
         <!-- Botón "Volver" en el fondo beige -->
-        <div class="absolute top-4 left-4">
-            <a 
-                href="{{route('reposteria')}}" 
+        <div class="top-4">
+            <a
+                href="{{route('reposteria')}}"
                 class="text-red-600 hover:text-red-700 font-medium text-sm"
             >
                 Volver
@@ -23,9 +23,9 @@
                 {{ $producto->descripcion }}
             </p>
             <div class="flex justify-center">
-                <img 
-                    src="{{ asset('images/--nombre--') }}" 
-                    alt="Imagen del producto" 
+                <img
+                    src="{{ asset('images/--nombre--') }}"
+                    alt="Imagen del producto"
                     class="w-64 h-auto rounded-lg shadow-md"
                 />
             </div>
@@ -36,8 +36,8 @@
 
         <!-- Acciones del producto -->
         <div class="mt-8 flex justify-between items-center space-x-4">
-            <a 
-                href="{{route('reposteria.edit', $producto)}}" 
+            <a
+                href="{{route('reposteria.edit', $producto)}}"
                 class="bg-yellow-500 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-yellow-600 transition duration-300"
             >
                 Editar Producto
@@ -46,8 +46,8 @@
             <form action="" method="POST" class="inline-block">
                 @csrf
                 @method('DELETE')
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
                 >
                     Eliminar Producto

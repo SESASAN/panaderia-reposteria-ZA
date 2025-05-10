@@ -13,11 +13,11 @@
             <!-- Campo Nombre -->
             <div>
                 <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                <input 
-                    type="text" 
-                    name="nombre" 
-                    id="nombre" 
-                    value="{{ old('nombre', $producto->nombre) }}" 
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    value="{{ old('nombre', $producto->nombre) }}"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
                 @error('nombre')
@@ -30,11 +30,11 @@
             <!-- Campo Slug -->
             <div>
                 <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-                <input 
-                    type="text" 
-                    name="slug" 
-                    id="slug" 
-                    value="{{ old('slug', $producto->slug) }}" 
+                <input
+                    type="text"
+                    name="slug"
+                    id="slug"
+                    value="{{ old('slug', $producto->slug) }}"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 />
                 @error('slug')
@@ -47,9 +47,9 @@
             <!-- Campo Categoría -->
             <div>
                 <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>
-                <select 
-                    name="categoria_id" 
-                    id="categoria_id" 
+                <select
+                    name="categoria_id"
+                    id="categoria_id"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >
                     @foreach ($categorias as $categoria)
@@ -68,10 +68,10 @@
             <!-- Campo Descripción -->
             <div>
                 <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <textarea 
-                    name="descripcion" 
-                    id="descripcion" 
-                    rows="4" 
+                <textarea
+                    name="descripcion"
+                    id="descripcion"
+                    rows="4"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
                 >{{ old('descripcion', $producto->descripcion) }}</textarea>
                 @error('descripcion')
@@ -83,8 +83,8 @@
 
             <!-- Botón de envío -->
             <div class="flex justify-end">
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
                 >
                     Actualizar Producto

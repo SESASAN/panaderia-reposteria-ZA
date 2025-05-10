@@ -14,10 +14,10 @@
             <p class="text-gray-600 mb-4">Por favor ingresa tu información</p>
             <form action="/login" method="POST">
                 <label for="email" class="block text-left text-gray-700 mb-1">Email:</label>
-                <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-md mb-4">
+                <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md mb-4">
 
                 <label for="password" class="block text-left text-gray-700 mb-1">Contraseña:</label>
-                <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-md mb-4">
+                <input type="password" id="password" name="password" required class="w-full p-2 border border-gray-300 rounded-md mb-4">
 
                 <div class="recordarme-container flex items-center mb-4 w-full">
                     <input type="checkbox" id="remember" name="remember" class="mr-2">
@@ -25,7 +25,7 @@
                 </div>
 
                 <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md font-bold mb-2">Iniciar Sesión</button>
-                
+
                 <button type="button" class="w-full bg-blue-600 text-white flex justify-center items-center py-2 rounded-md">
                     <img src="{{ asset('images/google.png') }}" alt="Google Logo" class="w-8 mr-2">
                     Iniciar Sesión con Google
