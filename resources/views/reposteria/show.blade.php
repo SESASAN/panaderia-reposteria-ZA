@@ -43,7 +43,7 @@
                 Editar Producto
             </a>
 
-            <form action="" method="POST" class="inline-block">
+            <form action="{{route('reposteria.destroy', $producto)}}" method="POST" class="inline-block">
                 @csrf
                 @method('DELETE')
                 <button
