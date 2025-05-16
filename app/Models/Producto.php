@@ -47,17 +47,17 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class);
     }
 
-    // Generación automática del slug
+    // Generación automática del slug solo si no se proporciona
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($producto) {
-            $producto->slug = \Illuminate\Support\Str::slug($producto->nombre);
+            if (empty($producto->slug)) {
+                $producto->slug = \Illuminate\Support\Str::slug($producto->nombre);
+            }
         });
 
-        static::updating(function ($producto) {
-            $producto->slug = \Illuminate\Support\Str::slug($producto->nombre);
-        });
+        // En updating no sobrescribimos el slug para permitir edición manual
     }
 }

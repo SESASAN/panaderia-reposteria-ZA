@@ -1,13 +1,14 @@
 <x-Layout>
     <!-- Encabezado -->
-    <div class="bg-[#FFF7EB] py-6 px-max text-center">
+    <div class="py-6 px-max text-center">
         <h1 class="text-4xl font-bold text-gray-800">Nuevo Producto</h1>
+        <h2 class="text-2xl font-bold text-gray-800">Repostería</h2>
     </div>
 
     <!-- Formulario -->
     <div class="w-[96%] max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10">
         {{-- Validación de errores (descomentable) --}}
-        {{--
+
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                 <h2 class="font-bold">Errores:</h2>
@@ -18,7 +19,7 @@
                 </ul>
             </div>
         @endif
-        --}}
+
 
         <form action="{{ route('reposteria.store') }}" method="POST" class="space-y-6">
             @csrf
@@ -55,6 +56,37 @@
                 @enderror
             </div>
 
+            <!-- Campo Descripción -->
+            <div>
+                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+                <textarea
+                    name="descripcion"
+                    id="descripcion"
+                    rows="4"
+                    placeholder="Ingrese una descripción del producto"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                >{{ old('descripcion') }}</textarea>
+                @error('descripcion')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Campo Precio -->
+            <div>
+                <label for="precio" class="block text-sm font-medium text-gray-700">Precio</label>
+                <input
+                    type="number"
+                    name="precio"
+                    id="precio"
+                    value="{{ old('precio') }}"
+                    placeholder="Ingrese el precio del producto"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                />
+                @error('precio')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
             <!-- Campo Categoría -->
             <div>
                 <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>
@@ -69,21 +101,6 @@
                     @endforeach
                 </select>
                 @error('categoria_id')
-                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Campo Descripción -->
-            <div>
-                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <textarea
-                    name="descripcion"
-                    id="descripcion"
-                    rows="4"
-                    placeholder="Ingrese una descripción del producto"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
-                >{{ old('descripcion') }}</textarea>
-                @error('descripcion')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>

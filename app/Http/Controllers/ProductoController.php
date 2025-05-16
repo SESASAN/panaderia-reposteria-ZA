@@ -10,34 +10,20 @@ use Illuminate\Support\Facades\Mail;
 
 class ProductoController extends Controller
 {
-    public function index()
-    {
-        $productos = Producto::with('categoria')
-                    ->orderBy('id', 'desc')
-                    ->paginate(10);
-
-        return view('reposteria.index', compact('productos'));
-    }
-
+    // ====== VISTAS DE ÍNDICE ======
     public function reposteria()
     {
-        $categoriaReposteria = 2;
-        $productos = Producto::where('categoria_id', $categoriaReposteria)
-                    ->paginate(10);
-
+        $productos = Producto::where('categoria_id', 2)->paginate(10);
         return view('reposteria.index', compact('productos'));
     }
 
-    // Índice para panadería
     public function panaderia()
     {
-        $categoriaPanaderia = 1;
-        $productos = Producto::where('categoria_id', $categoriaPanaderia)
-                    ->paginate(10);
-
+        $productos = Producto::where('categoria_id', 1)->paginate(10);
         return view('panaderia.index', compact('productos'));
     }
 
+    // ====== CREATE ======
     public function create()
     {
         $categorias = Categoria::all();
@@ -46,69 +32,106 @@ class ProductoController extends Controller
 
     public function createReposteria()
     {
-        $categoriaReposteria = 2; // ID de repostería
         return view('reposteria.create', [
             'categorias' => Categoria::all(),
-            'categoriaDefault' => $categoriaReposteria
+            'categoriaDefault' => 2
         ]);
     }
 
-    // CREATE para panadería
     public function createPanaderia()
     {
-        $categoriaPanaderia = 1; // ID de panadería
         return view('panaderia.create', [
             'categorias' => Categoria::all(),
-            'categoriaDefault' => $categoriaPanaderia
+            'categoriaDefault' => 1
         ]);
     }
 
-    // En ProductoController.php
-
+    // ====== STORE ======
     public function storeReposteria(StoreProductoReposteriaRequest $request)
     {
         $data = $request->validated();
+        $data['categoria_id'] = 2;
 
-        // Procesar imagen si existe
         if ($request->hasFile('imagen')) {
             $data['imagen'] = $request->file('imagen')->store('reposteria', 'public');
         }
 
         Producto::create($data);
-
-        return redirect()->route('reposteria.index');
+        return redirect()->route('reposteria');
     }
-
 
     public function storePanaderia(StoreProductoPanaderiaRequest $request)
     {
         $data = $request->validated();
-        $data['categoria_id'] = 1; // Forzar categoría panadería
+        $data['categoria_id'] = 1;
+
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('panaderia', 'public');
+        }
 
         Producto::create($data);
-        return redirect()->route('panaderia'); // Usar el nombre correcto de la ruta
+        return redirect()->route('panaderia');
     }
 
+    // ====== SHOW ======
     public function showReposteria(Producto $producto)
     {
         return view('reposteria.show', compact('producto'));
     }
 
+    public function showPanaderia(Producto $producto)
+    {
+        return view('panaderia.show', compact('producto'));
+    }
+
+    // ====== EDIT ======
     public function editReposteria(Producto $producto)
     {
         $categorias = Categoria::all();
         return view('reposteria.edit', compact('producto', 'categorias'));
     }
 
-    public function updateReposteria(StoreProductoReposteriaRequest $request, Producto $producto)
+    public function editPanaderia(Producto $producto)
     {
-        $producto->update($request->all());
-        return redirect()->route('reposteria.index');
+        $categorias = Categoria::all();
+        return view('panaderia.edit', compact('producto', 'categorias'));
     }
 
-    public function destroy(Producto $producto)
+    // ====== UPDATE ======
+    public function updateReposteria(StoreProductoReposteriaRequest $request, Producto $producto)
+    {
+        $data = $request->validated();
+
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('reposteria', 'public');
+        }
+
+        $producto->update($data);
+        return redirect()->route('reposteria');
+    }
+
+    public function updatePanaderia(StoreProductoPanaderiaRequest $request, Producto $producto)
+    {
+        $data = $request->validated();
+
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('panaderia', 'public');
+        }
+
+        $producto->update($data);
+        return redirect()->route('panaderia');
+    }
+
+    // ====== DELETE ======
+    public function destroyReposteria(Producto $producto)
     {
         $producto->delete();
-        return redirect()->route('productos.index');
+        return redirect()->route('reposteria');
+    }
+
+    public function destroyPanaderia(Producto $producto)
+    {
+        $producto->delete();
+        return redirect()->route('panaderia');
     }
 }
