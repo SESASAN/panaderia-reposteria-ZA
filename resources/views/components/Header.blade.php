@@ -12,16 +12,13 @@
                 <li>
                     <a class=" hover:text-gray-500 px-10 mx-5 border-x-1 border-black " href="{{route('reposteria')}}">Repostería</a>
                 </li>
-                {{-- <li>
-                    <a class="hover:text-gray-500 px-10 mx-5 border-x-1 border-black" href="">Panadería</a>
-                </li> --}}
+                <li>
+                    <a class="hover:text-gray-500 px-10 mx-5 border-x-1 border-black" href="{{route('panaderia')}}">Panadería</a>
+                </li>
             </ul>
 
         </div>
         <div>
-            {{-- <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">
-                Iniciar Sesión
-            </button> --}}
         </div>
     </nav>
 </header>
