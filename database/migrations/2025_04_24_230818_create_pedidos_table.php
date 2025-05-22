@@ -17,7 +17,6 @@ return new class extends Migration
             $table->date('fecha_entrega');
             $table->string('estado')->default('pendiente');
             $table->string('direccion_entrega');
-            $table->int('cantidad');
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });

@@ -1,30 +1,25 @@
-<x-Layout>
-    <!-- Título de la página -->
-    <div class="bg-[#FFF7EB] py-6 px-4 text-center">
-        <h1 class="text-4xl font-bold text-gray-800">Panadería</h1>
-    </div>
+<x-Empleado>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panadería</title>
 
-    <!-- Botón para crear un nuevo producto -->
-    <div class="flex justify-center mt-6">
-        <a
-            href="{{route('panaderia.create')}}"
-            class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-semibold shadow hover:bg-red-700 transition duration-300"
-        >
-            Nuevo producto
-        </a>
+    <div class="panaderia-card">
+       <h1 class="panaderia-title">Panadería</h1>
+
+    <div class="boton-contenedor">
+        <a href="{{ route('panaderia.create') }}" class="boton-nuevo">Nuevo producto</a>
     </div>
 
     <!-- Lista de productos -->
-    <div class="max-w-4xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-10"> <!-- Aquí está el margen inferior -->
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Nuestros productos</h2>
-        <ul class="space-y-4">
+    <div class="productos-contenedor">
+        <h2 class="productos-titulo">Nuestros productos</h2>
+        <ul class="productos-lista">
             @foreach ($productos as $producto)
                 @if ($producto->categoria_id == 1)
-                    <li class="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow">
-                        <a
-                            href="{{route('panaderia.show', $producto)}}"
-                            class="text-lg font-medium text-gray-800 hover:text-red-600 transition duration-300"
-                        >
+                    <li class="producto-item">
+                        <a href="{{ route('panaderia.show', $producto) }}" class="producto-link">
                             {{ $producto->nombre }}
                         </a>
                     </li>
@@ -35,8 +30,95 @@
 
     <!-- Paginación (comentada) -->
     {{--
-    <div class="mt-6 flex justify-center">
+    <div class="">
         {{ $posts->links() }}
     </div>
     --}}
-</x-Layout>
+    <style>
+        body {
+    background-color: #EEDBC0; /* Fondo cálido tipo café claro */
+    font-family: 'Merriweather', serif;
+}
+
+.panaderia-card {
+    max-width: 420px;
+    margin: 60px auto;
+    background-color: #b3926d; /* Fondo del contenedor, tipo café medio */
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.panaderia-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2e1f12;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.boton-contenedor {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.boton-nuevo {
+    background-color: #83502b;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #6b3e22;
+      transition: background-color 0.3s;
+}
+
+.boton-nuevo:hover {
+    background-color: #6c3f20;
+}
+
+.productos-contenedor {
+    background-color: #f6e4c8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.productos-titulo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3b2b1f;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.productos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.producto-item {
+    background-color: #ede0d4;
+    color: #3b2b1f;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.producto-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.producto-link:hover {
+    color: #83502b;
+}
+
+    </style>
+    </html>
+</x-Empleado>
