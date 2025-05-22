@@ -21,9 +21,8 @@
         @endif
 
 
-        <form action="{{ route('panaderia.store') }}" method="POST" class="space-y-6">
-            @csrf
-
+<form action="{{ route('panaderia.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+    @csrf
             <!-- Campo Nombre -->
             <div>
                 <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
@@ -85,8 +84,20 @@
                 @error('precio')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
+<!-- Campo Imagen -->
+<div>
+    <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen</label>
+    <input
+        type="file"
+        name="imagen"
+        id="imagen"
+        accept="image/*"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+    />
+    @error('imagen')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
             </div>
-
             <!-- Campo Categoría -->
             <div>
                 <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>

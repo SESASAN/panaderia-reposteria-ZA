@@ -24,7 +24,7 @@
             </p>
             <div class="flex justify-center">
                 <img
-                    src="{{ asset('images/--nombre--') }}"
+                src="{{ asset($producto->imagen) }}"
                     alt="Imagen del producto"
                     class="w-64 h-auto rounded-lg shadow-md"
                 />
