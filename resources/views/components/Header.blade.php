@@ -16,7 +16,8 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn">Empleados</a>
                 <div class="dropdown-content">
-                    <form action="#" method="post">
+                    <form action="{{ route('login') }}" method="POST">
+                        @csrf
                         <label for="username">Usuario:</label>
                         <input type="text" id="username" name="username" placeholder="Usuario">
                         <label for="password">Contraseña:</label>
@@ -92,7 +93,7 @@ img {
     text-align: center;
     font-family: 'Merriweather', serif;
     font-size: 25px;
-    color: #6b3e26; 
+    color: #6b3e26;
 }
 
 .nav-links .dropdown-content {

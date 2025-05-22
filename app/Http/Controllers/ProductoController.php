@@ -6,7 +6,7 @@ use App\Http\Requests\StoreProductoReposteriaRequest;
 use App\Http\Requests\StoreProductoPanaderiaRequest;
 use App\Models\Producto;
 use App\Models\Categoria;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -20,8 +20,10 @@ class ProductoController extends Controller
     public function panaderia()
     {
         $productos = Producto::where('categoria_id', 1)->paginate(10);
+
         return view('panaderia.index', compact('productos'));
     }
+
 
     // ====== CREATE ======
     public function create()
@@ -76,12 +78,18 @@ class ProductoController extends Controller
     // ====== SHOW ======
     public function showReposteria(Producto $producto)
     {
-        return view('reposteria.show', compact('producto'));
+        if (Auth::check()){
+            return view('reposteria.show', compact('producto'));
+        }
+        return view('Clientes.productos', compact('producto'));
     }
 
     public function showPanaderia(Producto $producto)
     {
-        return view('panaderia.show', compact('producto'));
+        if (Auth::check()){
+            return view('panaderia.show', compact('producto'));
+        }
+        return view('Clientes.productos', compact('producto'));
     }
 
     // ====== EDIT ======
@@ -134,4 +142,16 @@ class ProductoController extends Controller
         $producto->delete();
         return redirect()->route('panaderia');
     }
+
+    public function filtrarPorCategoria($categoria)
+    {
+        $categoria_id = $categoria === 'panaderia' ? 1 : 2;
+
+        $productos = Producto::where('categoria_id', $categoria_id)->get();
+
+        // ¡Esta es la corrección!
+        return view('partials.productos', compact('productos'));
+    }
+
+
 }
