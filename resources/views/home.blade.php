@@ -73,7 +73,8 @@ font-size: 18px;
     margin: 10px 0;
 }
 
-.comprar{
+.btn{
+    display: inline-block;
     background-color: #8b5e34; /* Botón en color café */
     color: white;
     padding: 10px;
@@ -84,36 +85,33 @@ font-size: 18px;
 </style>
     </section>
     <div class="opciones">
-        <select name="menu">
-        <option>Panadería</option>
-        <option>Repostería</option>
-        </select>
+    <select name="menu" id="categoriaSelect">
+        <option value="panaderia">Panadería</option>
+        <option value="reposteria">Repostería</option>
+    </select>
     </div>
 
-    <!-- <section class="bg-[#F5E7D3] p-8">
-        <h2 class="text-center text-2xl font-bold mb-4">Contacto</h2>
-        <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-            <label for="nombre" class="block font-bold mb-2">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required class="w-full p-2 border border-gray-300 rounded-md mb-4">
+    <div id="productosContainer">
+    {{-- Aquí van los productos inicialmente cargados --}}
+    <div class="productos" id="contenedor-productos">
+    @include('partials.productos', ['productos' => $productosPanaderia])
 
-            <label for="email" class="block font-bold mb-2">Email:</label>
-            <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md mb-4">
+    </div>
 
-            <label for="mensaje" class="block font-bold mb-2">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full p-2 border border-gray-300 rounded-md mb-4"></textarea>
-
-            <button type="submit" class="bg-[#EF4444] text-white py-2 rounded-md w-full">Enviar</button>
-        </form>
-    </section> -->
-
-    <!-- <section class="w-full bg-cover bg-center p-8 text-white relative" style="background-image: url('{{ asset('images/panaderiaIA.png') }}'); height: 400px;">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 text-center">
-            <h2 class="text-2xl font-bold mb-2">¿Trabajas con nosotros?</h2>
-            <p class="mb-4">Ingresa a la plataforma de empleados mediante el siguiente botón:</p>
-            <a href="/login">
-                <button class="bg-[#2563EB] text-white py-2 rounded-md">Iniciar sesión</button>
-            </a>
-        </div>
-    </section> -->
+</div>
 </x-Layout>
+
+<script>
+document.getElementById('categoriaSelect').addEventListener('change', function () {
+    const categoria = this.value;
+
+    fetch(`/productos/categoria/${categoria}`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('productosContainer').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error cargando productos:', error);
+        });
+});
+</script>

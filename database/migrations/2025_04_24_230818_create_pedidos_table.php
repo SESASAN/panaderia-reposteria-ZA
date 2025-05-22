@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cliente_id')->constrained('clientes');
             $table->date('fecha_entrega');
-            $table->enum('metodo_pago', ['transferencia'])->default('transferencia');
             $table->string('estado')->default('pendiente');
+            $table->string('direccion_entrega');
+            $table->int('cantidad');
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });
