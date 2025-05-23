@@ -156,7 +156,7 @@ select:focus {
 document.getElementById('categoriaSelect').addEventListener('change', function () {
     const categoria = this.value;
 
-    fetch(/productos/categoria/${categoria})
+    fetch(`/productos/categoria/${categoria}`) // Usar backticks ``
         .then(response => response.text())
         .then(html => {
             document.getElementById('productosContainer').innerHTML = html;

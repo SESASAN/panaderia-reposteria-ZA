@@ -1,22 +1,23 @@
 <x-Layout>
     <!-- Encabezado -->
-    <div class="header">
-        <h1>Producto</h1>
-        <div class="volver">
-            <a href="/">Volver</a>
+    <div class="encabezado-producto">
+        <h1 class="titulo-producto">Producto</h1>
+        <div class="volver-btn">
+            <a href="{{ route('reposteria') }}">Volver</a>
         </div>
     </div>
+
 
     <div class="container">
         <h2>Nombre: {{ $producto->nombre }}</h2>
-        <p class="description">{{ $producto->descripcion }}</p>
         <div class="img-container">
-            <img src="{{ asset('images/--nombre--') }}" alt="Imagen del producto" />
+            <img src="{{ asset($producto->imagen) }}" class="imagen"alt="Imagen del producto" />
         </div>
+        <p class="description">{{ $producto->descripcion }}</p>
         <p class="price">Precio: ${{ $producto->precio }}</p>
     </div>
 
-    <form action="{{ route('pedido.store',$producto) }}" method="POST" class="container">
+    <form action="{{ route('pedido.store', $producto) }}" method="POST" class="container">
         @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
@@ -48,141 +49,189 @@
 
 <style>
     body {
-    font-family: 'Merriweather', serif;
-    background-color: #f5e7d3;
-    margin: 0;
-    padding: 0;
-    color: #4b3621;
-}
+        font-family: 'Merriweather', serif;
+        background-color: #f5e7d3;
+        margin: 0;
+        padding: 0;
+        color: #4b3621;
+    }
 
-/* Encabezado */
-.header {
-    background-color: #fff7eb;
-    padding: 30px 20px;
-    text-align: center;
-    position: relative;
-    border-bottom: 2px solid #d6c0a0;
-}
+    .encabezado-producto {
+        background-color: #EEDBC0;
+        border-radius: 15px;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+    }
 
-.header h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
-    color: #4b3621;
-}
+    .titulo-producto {
+        font-size: 32px;
+        font-weight: bold;
+        color: #3e2a1f;
+    }
 
-.volver {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
+    .volver-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
 
-.volver a {
-    color: #c0392b;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-}
+    .volver-btn a {
+        position: absolute;
+        top: 20px;
+        left: -123px;
+        /* antes: 20px */
+        font-size: 14px;
+        font-weight: bold;
+        color: #83502b;
+        background-color: #f6e4c8;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
 
-.volver a:hover {
-    color: #a93226;
-}
+    .volver-btn a:hover {
+        background-color: #d9c1a5;
+        color: #5e3520;
+    }
 
-/* Contenedor principal */
-.container {
-    max-width: 700px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    box-sizing: border-box;
-}
+    /* Encabezado */
+    .header {
+        background-color: #fff7eb;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        border-bottom: 2px solid #d6c0a0;
+    }
 
-/* Nombre del producto */
-.container h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+    .header h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin: 0;
+        color: #4b3621;
+    }
 
-/* Descripción */
-.description {
-    font-size: 18px;
-    color: #5a4b3c;
-    margin-bottom: 20px;
-}
+    .volver {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
 
-/* Imagen */
-.img-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+    .volver a {
+        color: #c0392b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
 
-.img-container img {
-    max-width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+    .volver a:hover {
+        color: #a93226;
+    }
 
-/* Precio */
-.price {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 30px;
-}
+    /* Contenedor principal */
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
 
-/* Inputs */
-form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    margin-top: 16px;
-}
+    /* Nombre del producto */
+    .container h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
 
-form input {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 10px;
-    border: 2px solid #8b5e34;
-    border-radius: 6px;
-    background-color: #f5e3cf;
-    font-family: 'Merriweather', serif;
-    font-size: 14px;
-    box-sizing: border-box;
-    color: #4b3621;
-}
+    /* Descripción */
+    .description {
+        font-size: 18px;
+        color: #5a4b3c;
+        margin-bottom: 20px;
+    }
 
-form input:focus {
-    border-color: #6b3e26;
-    outline: none;
-    background-color: #f2d7b6;
-}
+    /* Imagen */
+    .img-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
+        /* Asegura que el contenedor ocupe todo el ancho */
+    }
 
-/* Botón */
-form button {
-    background-color: #8b5e34;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .img-container img {
+        width: 100%;
+        /* Ocupa todo el ancho del contenedor */
+        max-width: 300px;
+        /* Límite máximo opcional */
+        height: auto;
+        /* Mantiene la proporción */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-form button:hover {
-    background-color: #6b3e26;
-}
+    /* Precio */
+    .price {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    /* Inputs */
+    form label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        margin-top: 16px;
+    }
+
+    form input {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        border: 2px solid #8b5e34;
+        border-radius: 6px;
+        background-color: #f5e3cf;
+        font-family: 'Merriweather', serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        color: #4b3621;
+    }
+
+    form input:focus {
+        border-color: #6b3e26;
+        outline: none;
+        background-color: #f2d7b6;
+    }
+
+    /* Botón */
+    form button {
+        background-color: #8b5e34;
+        color: #ffffff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: #6b3e26;
+    }
 </style>
 
 <script>
-const precio = {{ $producto->precio }};
-document.getElementById('cantidad').addEventListener('input', function () {
-    const cantidad = parseInt(this.value) || 0;
-    document.getElementById('total').value = (cantidad * precio).toFixed(2);
-});
+    const precio = {{ $producto->precio }};
+    document.getElementById('cantidad').addEventListener('input', function() {
+        const cantidad = parseInt(this.value) || 0;
+        document.getElementById('total').value = (cantidad * precio).toFixed(2);
+    });
 </script>

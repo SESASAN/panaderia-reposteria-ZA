@@ -20,9 +20,14 @@
             @foreach ($productos as $producto)
                 @if ($producto->categoria_id == 2)
                     <li class="producto-item">
-                        <a href="{{ route('reposteria.show', $producto) }}" class="producto-link">
-                            {{ $producto->nombre }}
-                        </a>
+                        <div>
+                            <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}"
+                            class="w-16 h-16 rounded-full">
+                            <a href="{{ route('reposteria.show', $producto) }}" class="producto-link">
+                                {{ $producto->nombre }}
+                            </a>
+                        </div>
+
                     </li>
                 @endif
             @endforeach
