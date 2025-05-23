@@ -14,12 +14,16 @@ class PedidoController extends Controller
 
     public function index()
     {
-        $pedidos = Pedido::with('cliente')
-                ->orderBy('id', 'desc')
-                ->paginate(10);
+        // Usar distinct() para evitar duplicados por JOIN implícito
+        $pedidos = Pedido::with(['cliente', 'detalles.producto'])
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->unique('id'); // Elimina duplicados a nivel de colección
 
-        return view('pedidos.index', compact('pedidos'));
+        return view('empleados.dashboard', compact('pedidos'));
     }
+
+
 
     public function create()
     {
@@ -70,7 +74,7 @@ class PedidoController extends Controller
             'precio_unitario' => $validated['precio_unitario'],
         ]);
 
-        return redirect('/')
+        return redirect()->route('home')
             ->with('success', 'Tu pedido ha sido realizado con éxito');
     }
 
@@ -92,9 +96,27 @@ class PedidoController extends Controller
         return redirect()->route('pedidos.index');
     }
 
+    public function aceptar(Pedido $pedido)
+    {
+        $pedido->update(['estado' => 'activo']);
+        return redirect()->route('dashboard');
+    }
+
+    public function rechazar(Pedido $pedido)
+    {
+        $pedido->update(['estado' => 'rechazado']);
+        return redirect()->route('dashboard');
+    }
+
     public function destroy(Pedido $pedido)
     {
+        // Eliminar detalles asociados primero
+        $pedido->detalles()->delete();
+
+        // Eliminar el pedido
         $pedido->delete();
-        return redirect()->route('pedidos.index');
+
+        return redirect()->route('dashboard');
     }
+
 }

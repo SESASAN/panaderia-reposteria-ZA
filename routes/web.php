@@ -2,20 +2,16 @@
 
 use App\Http\Controllers\{
     HomeController,
-    CategoriaController,
     ProductoController,
     ClienteController,
     PedidoController,
-    DetallePedidoController,
     LoginController,
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
-Route::get('/dashboard', function () {
-    return view('empleados.dashboard');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [PedidoController::class, 'index'])->middleware('auth')->name('dashboard');
 
 
 Route::get('/productos/categoria/{categoria}', [ProductoController::class, 'filtrarPorCategoria']);
@@ -38,7 +34,6 @@ Route::prefix('reposteria')->name('reposteria.')->group(function () {
     Route::delete('/{producto}', [ProductoController::class, 'destroyReposteria'])->name('destroy')->middleware('auth');
 });
 
-
 Route::prefix('panaderia')->name('panaderia.')->group(function () {
     Route::get('/create', [ProductoController::class, 'createPanaderia'])->name('create')->middleware('auth');
     Route::post('/store', [ProductoController::class, 'storePanaderia'])->name('store')->middleware('auth');
@@ -49,3 +44,8 @@ Route::prefix('panaderia')->name('panaderia.')->group(function () {
 });
 
 Route::post('/productos/{producto}/pedido', [PedidoController::class, 'store'])->name('pedido.store');
+
+Route::put('/pedidos/{pedido}/aceptar', [PedidoController::class, 'aceptar'])->name('pedidos.aceptar')->middleware('auth');
+Route::delete('/pedidos/{pedido}', [PedidoController::class, 'destroy'])->name('pedidos.destroy')->middleware('auth');
+Route::put('/pedidos/{pedido}/rechazar', [PedidoController::class, 'rechazar'])->name('pedidos.rechazar');
+

@@ -24,7 +24,7 @@
             </p>
             <div class="flex justify-center">
                 <img
-                    src="{{ asset('images/--nombre--') }}"
+                    src="{{ asset($producto->imagen) }}"
                     alt="Imagen del producto"
                     class="w-64 h-auto rounded-lg shadow-md"
                 />
@@ -36,15 +36,15 @@
     </div>
 
     <div>
-        <form action="{{ route('pedido.store',$producto) }}" method="POST" class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-6">
-            @csrf 
+        <form action="{{ route('pedido.store', $producto) }}" method="POST" class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-6">
+            @csrf
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
             <label for="telefono">Teléfono:</label>
             <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono" required>
-            <label for="fecha_entrega">Fecha:</label>
+            <label for="fecha_entrega">Fecha de entrega:</label>
             <input type="date" id="fecha_entrega" name="fecha_entrega" required>
             <label for="direccion">Dirección:</label>
             <input type="text" id="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
