@@ -48,4 +48,3 @@ Route::post('/productos/{producto}/pedido', [PedidoController::class, 'store'])-
 Route::put('/pedidos/{pedido}/aceptar', [PedidoController::class, 'aceptar'])->name('pedidos.aceptar')->middleware('auth');
 Route::delete('/pedidos/{pedido}', [PedidoController::class, 'destroy'])->name('pedidos.destroy')->middleware('auth');
 Route::put('/pedidos/{pedido}/rechazar', [PedidoController::class, 'rechazar'])->name('pedidos.rechazar');
-

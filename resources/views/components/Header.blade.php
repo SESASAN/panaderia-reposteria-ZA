@@ -8,10 +8,13 @@
     <title>Header</title>
 </head>
 <body>
+    <header>
     <nav class="navbar">
+        <a href="/">
         <div class="logo">
-            <img src="{{ asset('images/logoconnegro.png') }}" alt="Zhandra Araujo Panadería Repostería" class="logo-img">
+            <img src="{{ asset('images/logoconnegro.png') }}" alt="Zhandra Araujo Panadería Repostería" class="logo">
         </div>
+        </a>
         <ul class="nav-links">
             <li class="dropdown">
                 <a href="#" class="dropbtn">Empleados</a>
@@ -34,15 +37,17 @@
         <img src="{{ asset('images/logomama.png') }}" alt="Banner" class="banner-img">
         <img src="{{ asset('images/bagge-roll.png') }}" alt="Banner" class="banner-img">
     </div>
-
+<header>
 </body>
 <style>
 
 
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Merriweather', serif;
 }
+
 
 img {
     width: 55px; /* Ancho fijo */
@@ -53,20 +58,19 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:rgb(214, 192, 160); /* Color café */
-    padding: 10px 10px;
-    width: 100%;
+    background-color: rgb(214, 192, 160);
+    padding: 4px 10px;
+    height: 95px; /* ALTURA FIJA */
+    box-sizing: border-box;
 }
-
 .logo {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 80px;
-    width: auto;
-}
+            width: 130px; /* Ajusta el tamaño según sea necesario */
+        }
 
 .nav-links {
     list-style: none;

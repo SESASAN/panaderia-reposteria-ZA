@@ -9,21 +9,21 @@
         <img src="{{ asset('images/tortadeleche.jpg') }}" alt="Producto 1">
         <h3 class="titulo_tarjeta">Torta de leche asada</h3>
         <p class="precio">$24000</p>
-        <button class="comprar">Compra ahora!</button>
+
     </div>
 
     <div class="producto">
         <img src="{{ asset('images/tortadeleche.jpg') }}" alt="Producto 2">
         <h3 class="titulo_tarjeta">Torta de leche asada</h3>
         <p class="precio">$24000</p>
-        <button class="comprar">Compra ahora!</button>
+
     </div>
 
     <div class="producto">
         <img src="{{ asset('images/tortadeleche.jpg') }}" alt="Producto 3">
         <h3 class="titulo_tarjeta">Torta de leche asada</h3>
         <p class="precio">$24000</p>
-        <button class="comprar">Compra ahora!</button>
+
     </div>
 </div>
 <style>
@@ -73,17 +73,9 @@ font-size: 18px;
     margin: 10px 0;
 }
 
-.btn{
-    display: inline-block;
-    background-color: #8b5e34; /* Botón en color café */
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 </style>
     </section>
+    <h2 class="titulo-categorias">Nuestras Categorias!</h2>
     <div class="opciones">
     <select name="menu" id="categoriaSelect">
         <option value="panaderia">Panadería</option>
@@ -99,13 +91,72 @@ font-size: 18px;
     </div>
 
 </div>
+<style>
+    .titulo-categorias {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #6b3e26; /* opcional: tono marrón cálido */
+}
+
+select {
+    background-color: #f5e3cf;
+    color: #4b3621;
+    border: 2px solid #8b5e34;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    appearance: none;         /* Oculta flecha nativa */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none;    /* Firefox */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='30,50 70,90 110,50' fill='none' stroke='%236b3e26' stroke-width='15' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    cursor: pointer;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #6b3e26;
+    background-color: #f2d7b6;
+}
+
+#productosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los productos */
+    justify-content: center; /* Asegura que los elementos estén bien distribuidos */
+}
+.productos {
+    flex: 1 1 calc(33.333% - 20px); /* Distribuye los productos en tres columnas */
+    box-sizing: border-box;
+}
+
+.btn{
+    display: inline-block;
+    background-color: #8b5e34; /* Botón en color café */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+</style>
 </x-Layout>
 
 <script>
 document.getElementById('categoriaSelect').addEventListener('change', function () {
     const categoria = this.value;
 
-    fetch(`/productos/categoria/${categoria}`)
+    fetch(`/productos/categoria/${categoria}`) // Usar backticks ``
         .then(response => response.text())
         .then(html => {
             document.getElementById('productosContainer').innerHTML = html;

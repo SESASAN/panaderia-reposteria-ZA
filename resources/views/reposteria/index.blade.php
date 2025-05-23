@@ -23,7 +23,7 @@
                         <div>
                             <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}"
                             class="w-16 h-16 rounded-full">
-                            <a href="{{ route('panaderia.show', $producto) }}" class="producto-link">
+                            <a href="{{ route('reposteria.show', $producto) }}" class="producto-link">
                                 {{ $producto->nombre }}
                             </a>
                         </div>

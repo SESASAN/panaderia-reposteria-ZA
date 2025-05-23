@@ -1,59 +1,106 @@
 <x-Empleado>
-    <h1 class="text-2xl font-bold mb-4">Pedidos</h1>
+    <style>
+        table {
+            width: 100%;
+            background-color: white;
+            border-collapse: collapse;
+            border: 1px solid #e5e7eb;
+        }
 
-    <table class="min-w-full bg-white border border-gray-200">
-        <thead class="bg-gray-100">
+        thead {
+            background-color: #f3f4f6;
+        }
+
+        th, td {
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .button {
+            padding: 4px 12px;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .accept {
+            background-color: #22c55e;
+        }
+
+        .reject {
+            background-color: #f59e0b;
+        }
+
+        .delete {
+            background-color: #dc2626;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .text-muted {
+            color: #4b5563;
+        }
+    </style>
+
+    <h1>Pedidos</h1>
+
+    <table>
+        <thead>
             <tr>
-                <th class="px-4 py-2 border">Cliente</th>
-                <th class="px-4 py-2 border">Producto</th>
-                <th class="px-4 py-2 border">Fecha de Entrega</th>
-                <th class="px-4 py-2 border">Dirección</th>
-                <th class="px-4 py-2 border">Cantidad</th>
-                <th class="px-4 py-2 border">Total</th>
-                <th class="px-4 py-2 border">Estado</th>
-                <th class="px-4 py-2 border">Acciones</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Fecha de Entrega</th>
+                <th>Dirección</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($pedidos as $pedido)
                 @php $detalle = $pedido->detalles->first(); @endphp
                 <tr>
-                    <td class="px-4 py-2 border">{{ $pedido->cliente->nombre }}</td>
-                    <td class="px-4 py-2 border">{{ $detalle->producto->nombre ?? 'N/A' }}</td>
-                    <td class="px-4 py-2 border">{{ $pedido->fecha_entrega }}</td>
-                    <td class="px-4 py-2 border">{{ $pedido->direccion_entrega }}</td>
-                    <td class="px-4 py-2 border">{{ $detalle->cantidad }}</td>
-                    <td class="px-4 py-2 border">${{ number_format($pedido->total, 2) }}</td>
-                    <td class="px-4 py-2 border">{{ $pedido->estado }}</td>
-                    <td class="px-4 py-2 border space-x-2">
+                    <td>{{ $pedido->cliente->nombre }}</td>
+                    <td>{{ $detalle->producto->nombre ?? 'N/A' }}</td>
+                    <td>{{ $pedido->fecha_entrega }}</td>
+                    <td>{{ $pedido->direccion_entrega }}</td>
+                    <td>{{ $detalle->cantidad }}</td>
+                    <td>${{ number_format($pedido->total, 2) }}</td>
+                    <td>{{ $pedido->estado }}</td>
+                    <td class="actions">
                         @if($pedido->estado === 'pendiente')
-                            <form action="{{ route('pedidos.aceptar', $pedido->id) }}" method="POST" class="inline">
+                            <form action="{{ route('pedidos.aceptar', $pedido->id) }}" method="POST">
                                 @csrf @method('PUT')
-                                <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded text-sm">
-                                    Aceptar
-                                </button>
+                                <button type="submit" class="button accept">Aceptar</button>
                             </form>
-                            <form action="{{ route('pedidos.rechazar', $pedido->id) }}" method="POST" class="inline">
+                            <form action="{{ route('pedidos.rechazar', $pedido->id) }}" method="POST">
                                 @csrf @method('PUT')
-                                <button type="submit" class="bg-yellow-500 text-white px-3 py-1 rounded text-sm">
-                                    Rechazar
-                                </button>
+                                <button type="submit" class="button reject">Rechazar</button>
                             </form>
                         @elseif($pedido->estado === 'rechazado')
-                            <form action="{{ route('pedidos.aceptar', $pedido->id) }}" method="POST" class="inline">
+                            <form action="{{ route('pedidos.aceptar', $pedido->id) }}" method="POST">
                                 @csrf @method('PUT')
-                                <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded text-sm">
-                                    Aceptar
-                                </button>
+                                <button type="submit" class="button accept">Aceptar</button>
                             </form>
-                            <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST" class="inline">
+                            <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST">
                                 @csrf @method('DELETE')
-                                <button type="submit" class="bg-red-600 text-white px-3 py-1 rounded text-sm">
-                                    Eliminar
-                                </button>
+                                <button type="submit" class="button delete">Eliminar</button>
                             </form>
                         @else
-                            <span class="text-gray-600">Sin acciones</span>
+                            <span class="text-muted">Sin acciones</span>
                         @endif
                     </td>
                 </tr>

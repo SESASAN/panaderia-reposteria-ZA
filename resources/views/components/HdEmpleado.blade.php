@@ -84,7 +84,7 @@
 <body>
     <header>
         <nav>
-            <a href="/">
+            <a href="/dashboard">
                 <div class="logo">
                     <img src="{{ asset('images/logoconnegro.png') }}" alt="Logo">
                 </div>

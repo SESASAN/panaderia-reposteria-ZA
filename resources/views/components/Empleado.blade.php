@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +13,35 @@
 {{-- Se agrega el header --}}
 <x-HdEmpleado />
 
-<body class="flex flex-col min-h-screen bg-[#F5E7D3]">
-    <main class="flex-1 flex flex-col justify-center items-center p-4">
+<body>
+    <main>
         {{-- El slot es donde se va a cargar el contenido de cada vista --}}
         {{ $slot }}
     </main>
 </body>
 
 {{-- Se agrega el footer --}}
-<x-Footer />
+
+<style>
+    body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #F5E7D3;
+            margin: 0;
+            padding: 0;
+            font-family: 'Merriweather', serif;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+</style>
+<x-Footer />
 
 </html>
