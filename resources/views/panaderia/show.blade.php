@@ -15,7 +15,7 @@
 
             <div class="producto-imagen-contenedor">
                 <img
-                    src="{{ asset('images/--nombre--') }}"
+                src="{{ asset($producto->imagen) }}"
                     alt="Imagen del producto"
                     class="producto-imagen"
                 />

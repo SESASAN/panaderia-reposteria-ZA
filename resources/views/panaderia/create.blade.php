@@ -20,6 +20,7 @@
             @csrf
 
                 <label for="nombre">Nombre</label>
+                
                 <input
                     type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" placeholder="Nombre del producto"/>
                 @error('nombre')
@@ -48,6 +49,28 @@
 
                 <label for="categoria_id">Categoría</label>
                 <select name="categoria_id" id="categoria_id">
+<!-- Campo Imagen -->
+<div>
+    <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen</label>
+    <input
+        type="file"
+        name="imagen"
+        id="imagen"
+        accept="image/*"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+    />
+    @error('imagen')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
+            </div>
+            <!-- Campo Categoría -->
+            <div>
+                <label for="categoria_id" class="block text-sm font-medium text-gray-700">Categoría</label>
+                <select
+                    name="categoria_id"
+                    id="categoria_id"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                >
                     <option value="">Selecciona una categoría</option>
                     @foreach($categorias as $categoria)
                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
