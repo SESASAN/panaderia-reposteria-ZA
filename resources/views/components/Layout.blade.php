@@ -13,8 +13,10 @@
 {{-- Se agrega el header --}}
 <x-Header />
 
-<body class="flex flex-col min-h-screen bg-[#F5E7D3]">
-    <main class="flex-1 flex flex-col justify-center items-center p-4">
+<body>
+    <img class="fondo-trigo" src="/images/fondotrigo-removebg-preview.png" alt="Fondo de trigo">
+    
+    <main>
         {{-- El slot es donde se va a cargar el contenido de cada vista --}}
         {{ $slot }}
     </main>
@@ -22,5 +24,31 @@
 
 {{-- Se agrega el footer --}}
 <x-Footer />
+<style>
+/* Aplica estilos generales al body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F5E7D3;
+    background-image: url('/images/fondotrigo-removebg-preview.png');
+    backdrop-filter: blur(4px);
+    background-position: center top;
+    background-size: contain;
+}
+.fondo-trigo {
+    filter: blur(4px); /* 👈 Solo la imagen del trigo tendrá blur */
+    opacity: 0.2;
 
+}
+/* Estilos para el main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+</style>
 </html>

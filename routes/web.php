@@ -47,3 +47,5 @@ Route::prefix('panaderia')->name('panaderia.')->group(function () {
     Route::put('/{producto}', [ProductoController::class, 'updatePanaderia'])->name('update')->middleware('auth');
     Route::delete('/{producto}', [ProductoController::class, 'destroyPanaderia'])->name('destroy')->middleware('auth');
 });
+
+Route::post('/productos/{producto}/pedido', [PedidoController::class, 'store'])->name('pedido.store');
