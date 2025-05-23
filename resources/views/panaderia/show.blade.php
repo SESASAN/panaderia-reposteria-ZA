@@ -3,7 +3,7 @@
     <div class="encabezado-producto">
         <h1 class="titulo-producto">Producto</h1>
         <div class="volver-btn">
-            <a href="{{ route('reposteria') }}">Volver</a>
+            <a href="{{ route('panaderia') }}">Volver</a>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
         }
 
         .encabezado-producto {
-            
+
             padding: 30px 20px;
             text-align: center;
             position: relative;

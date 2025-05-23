@@ -14,9 +14,9 @@ class Pedido extends Model
     protected $fillable = [
         'cliente_id',
         'fecha_entrega',
-        'direccion_entrega',
         'estado',
-        'total'
+        'total',
+        'direccion_entrega',
     ];
 
     protected $casts = [
@@ -25,14 +25,14 @@ class Pedido extends Model
     ];
 
     // Relación: Un pedido pertenece a un cliente
+    public function detalles()
+    {
+        return $this->hasMany(DetallePedido::class);
+    }
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);
     }
 
-    // Relación: Un pedido tiene muchos detalles
-    public function detalles()
-    {
-        return $this->hasMany(DetallePedido::class);
-    }
 }

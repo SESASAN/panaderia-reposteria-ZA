@@ -22,7 +22,6 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" value="{{ old('nombre', $producto->nombre) }}"
                     placeholder="Ingrese el nombre del producto">

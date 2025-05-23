@@ -23,16 +23,16 @@ class DetallePedido extends Model
     ];
 
     // Relación: Un detalle pertenece a un pedido
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
+
     public function pedido()
     {
         return $this->belongsTo(Pedido::class);
     }
 
-    // Relación: Un detalle pertenece a un producto
-    public function producto()
-    {
-        return $this->belongsTo(Producto::class);
-    }
 
     // Accesor para el subtotal
     public function getSubtotalAttribute()

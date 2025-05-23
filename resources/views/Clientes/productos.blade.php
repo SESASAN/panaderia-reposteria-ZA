@@ -7,7 +7,6 @@
         </div>
     </div>
 
-
     <div class="container">
         <h2>Nombre: {{ $producto->nombre }}</h2>
         <div class="img-container">
@@ -45,6 +44,7 @@
 
         <button type="submit">Realizar Pedido</button>
     </form>
+
 </x-Layout>
 
 <style>
