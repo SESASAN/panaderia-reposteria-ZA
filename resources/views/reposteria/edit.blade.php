@@ -18,7 +18,7 @@
             </div>
         @endif
         <div class="Form">
-        <form action="{{ route('reposteria.update', $producto) }}" method="POST" class="formulario">
+        <form action="{{ route('reposteria.update', $producto) }}" method="POST" class="formulario" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -45,7 +45,25 @@
                 @error('precio')
                     <p class="mensaje-error">{{ $message }}</p>
                 @enderror
-
+                <div class="mb-4">
+                    <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen</label>
+                    <input
+                        type="file"
+                        name="imagen"
+                        id="imagen"
+                        accept="image/*"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm"
+                    />
+                    @if($producto->imagen)
+                        <div class="mt-2">
+                            <img src="{{ asset($producto->imagen) }}" alt="Imagen actual del producto" class="w-32 h-32 object-cover rounded-lg">
+                            <p class="text-sm text-gray-500 mt-1">Imagen actual</p>
+                        </div>
+                    @endif
+                    @error('imagen')
+                        <p class="mensaje-error">{{ $message }}</p>
+                @enderror
+                </div>
                 <label for="categoria_id">Categoría</label>
                 <select name="categoria_id" id="categoria_id">
                     <option value="">Selecciona una categoría</option>
