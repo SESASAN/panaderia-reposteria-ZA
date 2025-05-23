@@ -59,7 +59,7 @@ class PedidoController extends Controller
             'fecha_entrega' => $validated['fecha_entrega'],
             'estado' => 'pendiente', // o el estado inicial que uses
             'total' => $total,
-            'metodo_pago' => 'efectivo', // o lo que manejes
+            'direccion_entrega' => $validated['direccion'],
         ]);
 
         // Crear detalle del pedido
@@ -70,7 +70,7 @@ class PedidoController extends Controller
             'precio_unitario' => $validated['precio_unitario'],
         ]);
 
-        return redirect()->route('productos.show', $producto->slug)
+        return redirect('/')
             ->with('success', 'Tu pedido ha sido realizado con éxito');
     }
 

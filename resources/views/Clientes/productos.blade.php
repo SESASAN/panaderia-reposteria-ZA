@@ -36,7 +36,8 @@
     </div>
 
     <div>
-        <form action="POST" method="POST" class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-6">
+        <form action="{{ route('pedido.store',$producto) }}" method="POST" class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mb-6">
+            @csrf 
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
             <label for="email">Email:</label>
