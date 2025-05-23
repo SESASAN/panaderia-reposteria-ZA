@@ -51,30 +51,30 @@ class ProductoController extends Controller
     // ====== STORE ======
     public function storeReposteria(StoreProductoReposteriaRequest $request)
     {
-    $data = $request->validated();
-    $data['categoria_id'] = 2;
-    if ($request->hasFile('imagen')) {
-        $imagen = $request->file('imagen');
-        $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
-        $imagen->move(public_path('images/'), $nombreImagen);
-        $data['imagen'] = 'images/' . $nombreImagen;
-    }
-    Producto::create($data);
-    return redirect()->route('reposteria');
+        $data = $request->validated();
+        $data['categoria_id'] = 2;
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            $imagen->move(public_path('images/'), $nombreImagen);
+            $data['imagen'] = 'images/' . $nombreImagen;
+        }
+        Producto::create($data);
+        return redirect()->route('reposteria');
     }
 
     public function storePanaderia(StoreProductoPanaderiaRequest $request)
     {
-    $data = $request->validated();
-    $data['categoria_id'] = 1;
-    if ($request->hasFile('imagen')) {
-        $imagen = $request->file('imagen');
-        $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
-        $imagen->move(public_path('images/'), $nombreImagen);
-        $data['imagen'] = 'images/' . $nombreImagen;
-    }
-    Producto::create($data);
-    return redirect()->route('panaderia');
+        $data = $request->validated();
+        $data['categoria_id'] = 1;
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            $imagen->move(public_path('images/'), $nombreImagen);
+            $data['imagen'] = 'images/' . $nombreImagen;
+        }
+        Producto::create($data);
+        return redirect()->route('panaderia');
     }
 
     // ====== SHOW ======
