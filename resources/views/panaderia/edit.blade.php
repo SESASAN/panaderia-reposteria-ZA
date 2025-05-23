@@ -203,5 +203,37 @@
                 border-radius: 0.375rem;
                 margin-bottom: 1rem;
             }
+            @media (max-width: 768px) {
+            .form-wrapper {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .Form {
+                padding: 1rem;
+            }
+
+            .form-wrapper h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-wrapper h2 {
+                font-size: 1.1rem;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            textarea,
+            select {
+                font-size: 1rem;
+            }
+
+            button,
+            .form-wrapper button {
+                width: 100%;
+                font-size: 1rem;
+                padding: 0.75rem 1rem;
+            }
+        }
         </style>
 </x-Empleado>

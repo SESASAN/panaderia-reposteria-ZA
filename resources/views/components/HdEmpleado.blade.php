@@ -7,7 +7,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Panadería y Repostería</title>
-    <style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/dashboard">
+                <div class="logo">
+                    <img src="{{ asset('images/logoconnegro.png') }}" alt="Logo">
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ route('reposteria') }}">Repostería</a>
+                </li>
+                <li>
+                    <a href="{{ route('panaderia') }}">Panadería</a>
+                </li>
+            </ul>
+            @auth
+            <div class="user-info">
+                <p>{{ Auth::user()->nombre }}</p>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="logout-button">Cerrar sesión</button>
+                </form>
+            </div>
+            @endauth
+            <div>
+                {{-- Aquí puedes agregar un botón de inicio de sesión si es necesario --}}
+            </div>
+        </nav>
+    </header>
+</body>
+<style>
         body {
             font-family: 'Merriweather', serif;
             margin: 0;
@@ -79,37 +111,37 @@
             border: none; /* Elimina el borde del botón */
             cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
         }
+        @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            height: auto;
+            padding: 10px 16px;
+            gap: 10px;
+        }
+
+        .nav-links {
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            margin: 0;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+
+        .user-info {
+            justify-content: center;
+            margin: 10px 0 0 0;
+            width: 100%;
+        }
+
+        .logout-button {
+            width: 100%;
+            text-align: center;
+        }
+        }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/dashboard">
-                <div class="logo">
-                    <img src="{{ asset('images/logoconnegro.png') }}" alt="Logo">
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li>
-                    <a href="{{ route('reposteria') }}">Repostería</a>
-                </li>
-                <li>
-                    <a href="{{ route('panaderia') }}">Panadería</a>
-                </li>
-            </ul>
-            @auth
-            <div class="user-info">
-                <p>{{ Auth::user()->nombre }}</p>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="logout-button">Cerrar sesión</button>
-                </form>
-            </div>
-            @endauth
-            <div>
-                {{-- Aquí puedes agregar un botón de inicio de sesión si es necesario --}}
-            </div>
-        </nav>
-    </header>
-</body>
 </html>

@@ -80,7 +80,6 @@
         position: absolute;
         top: 20px;
         left: -123px;
-        /* antes: 20px */
         font-size: 14px;
         font-weight: bold;
         color: #83502b;
@@ -97,7 +96,7 @@
         color: #5e3520;
     }
 
-    /* Encabezado */
+
     .header {
         background-color: #fff7eb;
         padding: 30px 20px;
@@ -130,7 +129,7 @@
         color: #a93226;
     }
 
-    /* Contenedor principal */
+
     .container {
         max-width: 700px;
         margin: 40px auto;
@@ -141,48 +140,44 @@
         box-sizing: border-box;
     }
 
-    /* Nombre del producto */
+
     .container h2 {
         font-size: 28px;
         font-weight: bold;
         margin-bottom: 15px;
     }
 
-    /* Descripción */
+
     .description {
         font-size: 18px;
         color: #5a4b3c;
         margin-bottom: 20px;
     }
 
-    /* Imagen */
+
     .img-container {
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
         width: 100%;
-        /* Asegura que el contenedor ocupe todo el ancho */
     }
 
     .img-container img {
         width: 100%;
-        /* Ocupa todo el ancho del contenedor */
         max-width: 300px;
-        /* Límite máximo opcional */
         height: auto;
-        /* Mantiene la proporción */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Precio */
+
     .price {
         font-size: 22px;
         font-weight: 600;
         margin-bottom: 30px;
     }
 
-    /* Inputs */
+
     form label {
         display: block;
         margin-bottom: 6px;
@@ -209,7 +204,7 @@
         background-color: #f2d7b6;
     }
 
-    /* Botón */
+
     form button {
         background-color: #8b5e34;
         color: #ffffff;
@@ -226,6 +221,53 @@
     form button:hover {
         background-color: #6b3e26;
     }
+
+@media (max-width: 768px) {
+    .header h1,
+    .titulo-producto {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .img-container img {
+        max-width: 100%;
+    }
+
+    .volver-btn a,
+    .volver a {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header,
+    .encabezado-producto {
+        padding: 20px 10px;
+    }
+
+    .container h2 {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    form input,
+    form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
 </style>
 
 <script>

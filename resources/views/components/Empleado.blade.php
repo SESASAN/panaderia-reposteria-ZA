@@ -41,7 +41,23 @@
             align-items: center;
             padding: 1rem;
         }
+
+    @media (max-width: 768px) {
+        main {
+            padding: 2rem 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            font-size: 14px;
+        }
+
+        main {
+            padding: 1.5rem 0.5rem;
+        }
+    }
 </style>
-<x-Footer />
+<x-Footer/>
 
 </html>

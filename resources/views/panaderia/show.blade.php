@@ -168,5 +168,94 @@
         .btn-eliminar:hover {
             background-color: #7a1e1e;
         }
+        @media (max-width: 768px) {
+        .titulo-producto {
+            font-size: 26px;
+        }
+
+        .volver-btn {
+            position: static;  /* quita absolute */
+            margin-top: 10px;  /* separa un poco del título */
+            text-align: center; /* si quieres centrar el botón */
+        }
+
+        .volver-btn a {
+            position: static;
+            display: inline-block;
+            margin: 0 auto;
+            left: auto;
+            top: auto;
+            box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+        }
+
+
+        .producto-card {
+            max-width: 90%;
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        .producto-nombre {
+            font-size: 22px;
+        }
+
+        .producto-descripcion {
+            font-size: 14px;
+        }
+
+        .producto-imagen {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .producto-precio {
+            font-size: 18px;
+        }
+
+        .acciones-producto {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-editar,
+        .btn-eliminar {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .titulo-producto {
+            font-size: 20px;
+        }
+
+        .producto-nombre {
+            font-size: 18px;
+        }
+
+        .producto-descripcion {
+            font-size: 13px;
+        }
+
+        .producto-imagen {
+            max-width: 150px;
+        }
+
+        .producto-precio {
+            font-size: 16px;
+        }
+
+        .acciones-producto {
+            gap: 10px;
+        }
+
+        .btn-editar,
+        .btn-eliminar {
+            font-size: 14px;
+            padding: 10px 0;
+        }
+    }
     </style>
 </x-Empleado>

@@ -119,7 +119,63 @@
 .producto-link:hover {
     color: #83502b;
 }
+@media (max-width: 768px) {
+    .reposteria-card {
+        max-width: 90%;
+        margin: 40px auto;
+        padding: 25px 20px;
+    }
 
+    .reposteria-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .boton-nuevo {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .productos-titulo {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .producto-item {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reposteria-card {
+        max-width: 95%;
+        margin: 30px auto;
+        padding: 20px 15px;
+    }
+
+    .reposteria-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .boton-nuevo {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .productos-titulo {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .producto-item {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
     </style>
 </html>
 </x-Empleado>

@@ -25,30 +25,44 @@
 {{-- Se agrega el footer --}}
 <x-Footer />
 <style>
-/* Aplica estilos generales al body */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #F5E7D3;
-    background-image: url('/images/fondotrigo-removebg-preview.png');
-    backdrop-filter: blur(4px);
-    background-position: center top;
-    background-size: contain;
-}
-.fondo-trigo {
-    filter: blur(4px); /* 👈 Solo la imagen del trigo tendrá blur */
-    opacity: 0.2;
+    /* Aplica estilos generales al body */
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #F5E7D3;
+        background-image: url('/images/fondotrigo-removebg-preview.png');
+        backdrop-filter: blur(4px);
+        background-position: center top;
+        background-size: contain;
+    }
+    .fondo-trigo {
+        filter: blur(4px); /* 👈 Solo la imagen del trigo tendrá blur */
+        opacity: 0.2;
 
-}
-/* Estilos para el main */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
+    }
+    /* Estilos para el main */
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+    @media (max-width: 768px) {
+    body {
+        background-size: cover; /* Para que cubra mejor en pantallas pequeñas */
+        background-position: top;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+
+    .fondo-trigo {
+        display: none; /* Opcional: ocultar imagen de fondo en móviles si interfiere */
+    }
+    }
 </style>
 </html>
