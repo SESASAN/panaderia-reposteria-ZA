@@ -205,5 +205,66 @@
                 border-radius: 0.375rem;
                 margin-bottom: 1rem;
             }
+            @media (max-width: 768px) {
+        .form-wrapper {
+            padding: 2rem;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .form-wrapper h1 {
+            font-size: 1.7rem;
+        }
+
+        .form-wrapper h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            font-size: 0.95rem;
+            padding: 0.5rem;
+        }
+
+        button,
+        .form-wrapper button {
+            font-size: 0.95rem;
+            padding: 0.5rem 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .form-wrapper {
+            padding: 1.5rem 1rem;
+            margin: 1.5rem auto;
+        }
+
+        .form-wrapper h1 {
+            font-size: 1.4rem;
+        }
+
+        .form-wrapper h2 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            font-size: 0.9rem;
+            padding: 0.4rem;
+        }
+
+        button,
+        .form-wrapper button {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+        }
+    }
         </style>
 </x-Empleado>

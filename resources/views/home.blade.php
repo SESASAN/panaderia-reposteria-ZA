@@ -3,6 +3,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <section>
+        <div class="tarjeta">
         <h2 class="titulo-productos">Nuevos productos</h2>
         <div class="productos">
     <div class="producto">
@@ -13,17 +14,17 @@
     </div>
 
     <div class="producto">
-        <img src="{{ asset('images/tortadeleche.jpg') }}" alt="Producto 2">
-        <h3 class="titulo_tarjeta">Torta de leche asada</h3>
-        <p class="precio">$24000</p>
+        <img src="{{ asset('images/dulcealfajor.jpg') }}" alt="Producto 2">
+        <h3 class="titulo_tarjeta">Dulce de Alfajor</h3>
+        <p class="precio">$5500</p>
 
     </div>
 
     <div class="producto">
-        <img src="{{ asset('images/tortadeleche.jpg') }}" alt="Producto 3">
-        <h3 class="titulo_tarjeta">Torta de leche asada</h3>
-        <p class="precio">$24000</p>
-
+        <img src="{{ asset('images/roll.jpg') }}" alt="Producto 3">
+        <h3 class="titulo_tarjeta">Roll de Canela</h3>
+        <p class="precio">$4000</p>
+</div>
     </div>
 </div>
 <style>
@@ -72,7 +73,48 @@ font-size: 18px;
     font-weight: bold;
     margin: 10px 0;
 }
+@media (max-width: 768px) {
+    .titulo-productos {
+        font-size: 32px;
+    }
 
+    .producto {
+        width: 45%; /* dos tarjetas por fila */
+        height: auto;
+    }
+
+    .producto img {
+        height: 200px;
+    }
+}
+
+/* Aquí el cambio importante para que las tarjetas se apilen */
+@media (max-width: 480px) {
+    .titulo-productos {
+        font-size: 26px;
+    }
+
+    .productos {
+        flex-direction: column; /* columnas verticales */
+        padding: 10px 15px;
+        gap: 15px;
+    }
+
+    .producto {
+        width: 100%; /* una tarjeta por fila */
+        padding: 15px;
+    }
+
+    .producto img {
+        height: 180px;
+    }
+
+    .titulo_tarjeta,
+    .precio {
+        font-size: 16px;
+    }
+}
+}
 </style>
     </section>
     <h2 class="titulo-categorias">Nuestras Categorias!</h2>
@@ -147,7 +189,51 @@ select:focus {
     border-radius: 5px;
     cursor: pointer;
 }
+@media (max-width: 992px) {
+    .titulo-categorias {
+        font-size: 32px;
+    }
 
+    select {
+        min-width: 150px;
+        font-size: 14px;
+        padding: 8px 12px;
+        margin-bottom: 40px;
+    }
+
+    .productos {
+        flex: 1 1 calc(50% - 20px); /* 2 columnas */
+    }
+}
+
+@media (max-width: 576px) {
+    .titulo-categorias {
+        font-size: 26px;
+        margin-top: 20px;
+    }
+
+    select {
+        width: 100%;
+        min-width: unset;
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    #productosContainer {
+        gap: 15px;
+    }
+
+    .productos {
+        flex: 1 1 100%; /* 1 columna */
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
 
 </style>
 </x-Layout>

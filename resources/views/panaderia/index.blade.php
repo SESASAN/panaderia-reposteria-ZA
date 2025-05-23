@@ -126,6 +126,33 @@
                 .producto-link:hover {
                     color: #83502b;
                 }
+                @media (max-width: 768px) {
+            .panaderia-card {
+                margin: 30px 16px;
+                padding: 20px;
+            }
+
+            .panaderia-title {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .productos-titulo {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .boton-nuevo {
+                width: 100%;
+                font-size: 1rem;
+                padding: 0.75rem;
+            }
+
+            .producto-item {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
             </style>
 
     </html>
